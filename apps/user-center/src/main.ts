@@ -1,21 +1,20 @@
 declare const module: any;
 
-import { NestFactory } from '@nestjs/core';
-import { UserCenterModule } from './user-center.module';
+import * as cookieParser from 'cookie-parser';
 
+import { AllExceptionsFilter, FastifyLogger, HttpExceptionFilter, catchError } from '@app/common';
 import {
   FastifyAdapter,
   NestFastifyApplication,
 } from '@nestjs/platform-fastify';
-
-import fastify from 'fastify';
-import * as cookieParser from 'cookie-parser';
-
-import { generateDocument } from './doc'
-import { FastifyLogger, catchError, AllExceptionsFilter, HttpExceptionFilter } from '@app/common';
-import { ValidationPipe, VersioningType } from '@nestjs/common';
-import fastifyCookie from '@fastify/cookie';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
+import { ValidationPipe, VersioningType } from '@nestjs/common';
+
+import { NestFactory } from '@nestjs/core';
+import { UserCenterModule } from './user-center.module';
+import fastify from 'fastify';
+import fastifyCookie from '@fastify/cookie';
+import { generateDocument } from './doc'
 
 catchError()
 
@@ -76,7 +75,7 @@ async function bootstrap() {
 
   // 启动服务
   await app.listen(4000);
-
+  console.log('打印当前的doc服务-4000')
   // 添加热更新
   if (module.hot) {
     module.hot.accept();

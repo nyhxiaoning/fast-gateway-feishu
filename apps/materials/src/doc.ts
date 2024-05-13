@@ -3,8 +3,9 @@
  * @Description: 创建文档
  */
 
-import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import * as packageConfig from '../package.json'
+
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 export const generateDocument = (app) => {
 
@@ -15,6 +16,6 @@ export const generateDocument = (app) => {
     .build();
 
   const document = SwaggerModule.createDocument(app, options);
-
+  console.log('http://127.0.0.1:4000/doc', 'doc打印当前的swagger')
   SwaggerModule.setup('/doc', app, document);
 }
