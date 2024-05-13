@@ -1,10 +1,11 @@
 import {
-  Entity,
   Column,
   CreateDateColumn,
+  Entity,
+  ObjectId,
   ObjectIdColumn,
-  ObjectID,
 } from 'typeorm';
+
 import { ProcessNodes } from '../physical/physical.dto';
 
 export enum MATERIAL_TYPE {
@@ -16,7 +17,7 @@ export enum MATERIAL_TYPE {
 @Entity()
 export class MaterialConfig {
   @ObjectIdColumn()
-  id: ObjectID;
+  id: ObjectId;
 
   @Column()
   materialId: string;

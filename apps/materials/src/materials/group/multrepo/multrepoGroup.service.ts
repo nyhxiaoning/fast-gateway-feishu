@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { MongoRepository, In, ObjectID } from 'typeorm';
+import { MongoRepository, In, ObjectId } from 'typeorm';
 import { MultrepoGroup } from './multrepoGroup.mongo.entity';
 
 @Injectable()
@@ -25,14 +25,14 @@ export class MultrepoGroupService {
     return this.groupRepository.find({
       where: {
         _id: {
-          $in: ids.map(id => new ObjectID(id))
+          $in: ids.map(id => new ObjectId(id))
         }
       }
     })
   }
 
   del(id) {
-    this.groupRepository.delete(new ObjectID(id))
+    this.groupRepository.delete(new ObjectId(id))
   }
 
 }

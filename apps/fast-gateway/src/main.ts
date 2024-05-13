@@ -1,21 +1,20 @@
 declare const module: any;
 
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
+import * as cookieParser from 'cookie-parser';
+
+import { AllExceptionsFilter, FastifyLogger, HttpExceptionFilter, catchError } from '@app/common';
 import {
   FastifyAdapter,
   NestFastifyApplication,
 } from '@nestjs/platform-fastify';
-
-import fastify from 'fastify';
-import * as cookieParser from 'cookie-parser';
-
-import { VERSION_NEUTRAL } from '@nestjs/common'
-
-import { generateDocument } from './doc'
-import { FastifyLogger, catchError, AllExceptionsFilter, HttpExceptionFilter } from '@app/common';
 import { ValidationPipe, VersioningType } from '@nestjs/common';
+
+import { AppModule } from './app.module';
+import { NestFactory } from '@nestjs/core';
+import { VERSION_NEUTRAL } from '@nestjs/common'
+import fastify from 'fastify';
 import fastifyCookie from '@fastify/cookie';
+import { generateDocument } from './doc'
 
 catchError()
 
@@ -59,7 +58,7 @@ async function bootstrap() {
   generateDocument(app)
 
   // 启动服务
-  await app.listen(80);
+  await app.listen(8087);
 
   // 添加热更新
   if (module.hot) {

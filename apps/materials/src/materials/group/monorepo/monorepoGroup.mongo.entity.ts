@@ -1,16 +1,16 @@
 import {
-  Entity,
   Column,
   CreateDateColumn,
+  Entity,
+  ObjectId,
   ObjectIdColumn,
-  ObjectID,
   UpdateDateColumn
 } from 'typeorm';
 
 @Entity()
 export class MonorepoGroup {
   @ObjectIdColumn()
-  id: ObjectID;
+  id: ObjectId;
 
   @Column({ default: null })
   name: string;

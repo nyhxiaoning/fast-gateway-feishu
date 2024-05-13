@@ -27,7 +27,7 @@ export class MonorepoGroupService {
 
   updateOne(id, params) {
     return this.groupRepository.findOneAndUpdate(
-      { _id: new ObjectID(id) },
+      { _id: new ObjectId(id) },
       { $set: { ...params } },
       { upsert: true }
     )
@@ -37,13 +37,13 @@ export class MonorepoGroupService {
     return this.groupRepository.find({
       where: {
         _id: {
-          $in: ids.map(id => new ObjectID(id))
+          $in: ids.map(id => new ObjectId(id))
         }
       }
     })
   }
 
   del(id) {
-    this.groupRepository.delete(new ObjectID(id))
+    this.groupRepository.delete(new ObjectId(id))
   }
 }
