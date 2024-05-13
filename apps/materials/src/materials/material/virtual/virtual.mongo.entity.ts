@@ -1,9 +1,9 @@
 import {
-  Entity,
   Column,
   CreateDateColumn,
+  Entity,
+  ObjectId,
   ObjectIdColumn,
-  ObjectID,
   UpdateDateColumn
 } from 'typeorm';
 
@@ -16,7 +16,7 @@ export enum MATERIAL_TYPE {
 @Entity()
 export class VirtualMaterial {
   @ObjectIdColumn()
-  id: ObjectID;
+  id: ObjectId;
 
   @Column()
   zhName: string;

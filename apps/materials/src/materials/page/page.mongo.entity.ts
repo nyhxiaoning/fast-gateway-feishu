@@ -1,9 +1,9 @@
 import {
-  Entity,
   Column,
   CreateDateColumn,
+  Entity,
+  ObjectId,
   ObjectIdColumn,
-  ObjectID,
   UpdateDateColumn,
 } from 'typeorm';
 
@@ -27,7 +27,7 @@ export enum STATUS_TYPE {
 @Entity()
 export class Page {
   @ObjectIdColumn()
-  id: ObjectID;
+  id: ObjectId;
 
   @Column({ default: null })
   path: string;

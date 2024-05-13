@@ -1,9 +1,9 @@
-import { Column, ObjectID, ObjectIdColumn, CreateDateColumn, Entity } from "typeorm";
+import { Column, CreateDateColumn, Entity, ObjectId, ObjectIdColumn } from "typeorm";
 
 @Entity()
 export class DeployTestConfig {
   @ObjectIdColumn()
-  id: ObjectID;
+  id: ObjectId;
 
   @Column({ default: null })
   contain: string;

@@ -1,11 +1,10 @@
-
 import {
-  Entity,
-  ObjectIdColumn,
   Column,
   CreateDateColumn,
-  UpdateDateColumn,
-  ObjectID
+  Entity,
+  ObjectId,
+  ObjectIdColumn,
+  UpdateDateColumn
 } from 'typeorm';
 
 import { ProcessNodes } from '../material/physical/physical.dto';
@@ -20,7 +19,7 @@ export enum PublishStatus {
 @Entity()
 export class Task {
   @ObjectIdColumn()
-  id?: ObjectID;
+  id?: ObjectId;
 
   @Column({ default: null })
   materialId?: string;

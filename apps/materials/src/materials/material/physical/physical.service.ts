@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { MongoRepository, ObjectID } from 'typeorm';
+import { MongoRepository, ObjectId } from 'typeorm';
 import { PhysicalMaterial } from './physical.mongo.entity';
 
 @Injectable()
@@ -31,7 +31,7 @@ export class PhysicalMaterialService {
 
   updateOne(id, params) {
     return this.PhysicalMaterialRepository.findOneAndUpdate(
-      { _id: new ObjectID(id) },
+      { _id: new ObjectId(id) },
       { $set: { ...params } },
       { upsert: true }
     )

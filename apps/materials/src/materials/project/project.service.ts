@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { ObjectID, MongoRepository } from 'typeorm';
+import { ObjectId, MongoRepository } from 'typeorm';
 import { Project } from './project.mongo.entity';
 
 @Injectable()
@@ -13,7 +13,7 @@ export class ProjectService {
     const { id, ...params } = project
     if (id) {
       return this.projectRepository.findOneAndUpdate(
-        { _id: new ObjectID(id) },
+        { _id: new ObjectId(id) },
         { $set: { ...params } },
         { upsert: true }
       )

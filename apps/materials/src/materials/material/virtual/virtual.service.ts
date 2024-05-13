@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { MongoRepository, ObjectID } from 'typeorm';
+import { MongoRepository, ObjectId } from 'typeorm';
 import { VirtualMaterial } from './virtual.mongo.entity';
 
 @Injectable()
@@ -23,7 +23,7 @@ export class VirtualMaterialService {
 
   updateOne(id, params) {
     return this.materialRepository.findOneAndUpdate(
-      { _id: new ObjectID(id) },
+      { _id: new ObjectId(id) },
       { $set: { ...params } },
       { upsert: true }
     )

@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { MongoRepository, ObjectID } from 'typeorm';
+import { MongoRepository, ObjectId } from 'typeorm';
 import { MonorepoGroup } from './monorepoGroup.mongo.entity';
 
 @Injectable()

@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { paginate, Pagination } from 'nestjs-typeorm-paginate';
 import { getPaginationOptions } from '@app/common';
-import { In, MongoRepository, ObjectID } from 'typeorm';
+import { In, MongoRepository, ObjectId } from 'typeorm';
 import { SearchConditionDto } from './task.dto';
 import { Task } from './task.mongo.entity';
 
@@ -18,7 +18,7 @@ export class TaskService {
 
   updateById(id, task: Task) {
     return this.taskRepository.findOneAndUpdate(
-      { "_id": new ObjectID(id) },
+      { "_id": new ObjectId(id) },
       { $set: { ...task } },
       { upsert: true }
     )

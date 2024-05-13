@@ -1,10 +1,10 @@
-import { Column, ObjectID, ObjectIdColumn, CreateDateColumn, Entity } from "typeorm";
+import { Column, CreateDateColumn, Entity, ObjectId, ObjectIdColumn } from "typeorm";
 
 // 物料内容表
 @Entity()
 export class PageConfig {
   @ObjectIdColumn()
-  id: ObjectID;
+  id: ObjectId;
 
   @Column({ default: null })
   contain: string;

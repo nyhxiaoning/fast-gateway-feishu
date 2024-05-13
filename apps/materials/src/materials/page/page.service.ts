@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { MongoRepository, ObjectID } from 'typeorm';
+import { MongoRepository, ObjectId } from 'typeorm';
 import { Page } from './page.mongo.entity';
 import { STATUS_TYPE } from './page.mongo.entity';
 
@@ -34,7 +34,7 @@ export class PageService {
 
   updateOne(id, page) {
     return this.pageRepository.findOneAndUpdate(
-      { "_id": new ObjectID(id) },
+      { "_id": new ObjectId(id) },
       { $set: { ...page } },
       { upsert: true }
     )
