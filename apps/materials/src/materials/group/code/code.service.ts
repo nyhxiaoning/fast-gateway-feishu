@@ -20,7 +20,7 @@ export class CodeGroupService {
   getListByParams(params) {
     return this.groupRepository.find({ where: { ...params } })
   }
-
+  // todo:
   getListByIds(ids) {
     return this.groupRepository.find({
       where: {
