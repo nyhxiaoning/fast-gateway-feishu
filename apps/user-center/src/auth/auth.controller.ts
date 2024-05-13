@@ -14,7 +14,7 @@ import { FeishuAuthGuard } from './guards/feishu-auth.guard';
 import { AuthService } from './auth.service';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { GetTokenByApplications } from './auth.dto';
-import { Public } from './constants';
+import { PublicApi } from './constants';
 import { PayloadUser } from '@app/common';
 import { FeishuService } from '../userCenter/user/feishu/feishu.service';
 import { FastifyReply } from 'fastify'
@@ -43,7 +43,7 @@ export class AuthController {
     description: '通过 code 获取`access_token`https://open.feishu.cn/open-apis/authen/v1/index?app_id=cli_a2ed5e7be4f9500d&redirect_uri=http%3A%2F%2F127.0.0.1%3A8080%2Fauth',
   })
   @UseGuards(FeishuAuthGuard)
-  @Public()
+  @PublicApi()
   @Get('/feishu/auth2')
   async getFeishuTokenByApplications(
     @PayloadUser() user: Payload,

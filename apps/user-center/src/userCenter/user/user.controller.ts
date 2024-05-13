@@ -6,7 +6,7 @@ import { PayloadUser, Public } from '@app/common';
 import { UserRoleService } from '../user-role/user-role.service';
 import { BusinessException } from '@app/common';
 import { MessagePattern, Payload as MicroPayload } from '@nestjs/microservices';
-
+import { PublicApi } from '@/auth/constants';
 @ApiTags('用户')
 @Controller('user')
 export class UserController {
@@ -18,6 +18,7 @@ export class UserController {
   @ApiOperation({
     summary: '用户信息',
   })
+
   @Post('/profile')
   profile(@PayloadUser() user: Payload) {
     return this.userService.profile(user.userId);
